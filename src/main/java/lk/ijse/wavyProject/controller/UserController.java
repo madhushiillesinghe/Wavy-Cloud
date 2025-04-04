@@ -15,4 +15,24 @@ public class UserController {
     public String createUser(@RequestBody String userJson) throws Exception {
         return userService.createUser(userJson);
     }
+
+    @GetMapping("/{userId}")
+    public String getUser(@PathVariable String userId) throws Exception {
+        return userService.getUserById(userId);
+    }
+
+    @GetMapping
+    public String getAllUsers() throws Exception {
+        return userService.getAllUsers();
+    }
+
+    @PutMapping("/{userId}")
+    public String updateUser(@PathVariable String userId, @RequestBody String userJson) throws Exception {
+        return userService.updateUser(userId, userJson);
+    }
+
+    @DeleteMapping("/{userId}")
+    public String deleteUser(@PathVariable String userId) throws Exception {
+        return userService.deleteUser(userId);
+    }
 }
